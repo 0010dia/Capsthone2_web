@@ -1,0 +1,72 @@
+.stock-widget {
+  padding: 20px;
+  color: white;
+}
+
+.stock-widget .widget-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start; 
+  align-items: center;
+  padding-bottom: 25px;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.stock-widget .header-icon {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.stock-widget h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.stock-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* 종목 간 간격 */
+}
+
+.stock-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.stock-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #eee;
+}
+
+.stock-data {
+  text-align: right;
+  display: flex;
+  flex-direction: column; /* 가격과 등락률을 우측에서 세로 정렬 */
+  gap: 2px;
+}
+
+.stock-price {
+  font-weight: 600;
+}
+
+.stock-change {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.stock-change.up { color: #ff4d4d; }
+.stock-change.down { color: #4d94ff; }
+
+.loading-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 10px;
+}

@@ -1,0 +1,50 @@
+.news-widget .widget-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 25px;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.news-widget h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.news-item {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.news-title {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-weight: 350;
+  text-align: center;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+
+  word-break: keep-all;
+  max-width: 100%;
+}
+
+.loading-text {
+  color: #aaa;
+  font-size: 0.9rem;
+  text-align: center;
+}

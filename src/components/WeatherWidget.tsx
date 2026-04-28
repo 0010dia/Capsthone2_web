@@ -27,7 +27,6 @@ const WeatherWidget: React.FC = () => {
               const geoData = await geoRes.json();
               const realCityName = geoData[0]?.local_names?.ko || geoData[0]?.name;
 
-              // 날씨 데이터 가져오기
               const weatherRes = await fetch(
                 `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=kr&appid=${API_KEY}`,
               );
@@ -40,7 +39,7 @@ const WeatherWidget: React.FC = () => {
           (error) => {
             console.error("위치 정보를 가져오는데 실패했습니다.", error);
           },
-          { enableHighAccuracy: true }, // GPS 정확도 향상 옵션
+          { enableHighAccuracy: true },
         );
       }
     };
@@ -51,6 +50,7 @@ const WeatherWidget: React.FC = () => {
         (item: any) => item.dt > nowInSec,
       );
 
+      // 위젯 하단 5개 미리보기용
       const forecastList = futureForecast.slice(0, 5).map((item: any) => {
         const date = new Date(item.dt * 1000);
         return {
@@ -62,6 +62,21 @@ const WeatherWidget: React.FC = () => {
       });
 
       const current = data.list[0];
+
+      // [핵심] DetailView로 던질 상세 데이터 객체 (rawList 포함)
+      const weatherDetailInfo = {
+        temp: Math.round(current.main.temp),
+        feels_like: Math.round(current.main.feels_like),
+        humidity: current.main.humidity,
+        wind_speed: current.wind.speed,
+        desc: current.weather[0].description,
+        icon: `https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`,
+        location: cityName,
+        pop: Math.round(current.pop * 100),
+        rawList: data.list, // 주간 예보를 위해 전체 리스트 전달
+      };
+
+      // 위젯 내부 상태 업데이트
       setWeather({
         temp: Math.round(current.main.temp),
         desc: current.weather[0].description,
@@ -70,6 +85,11 @@ const WeatherWidget: React.FC = () => {
         pop: Math.round(current.pop * 100),
         forecast: forecastList,
       });
+
+      // 상세창(DetailView)에 데이터 전송
+      window.dispatchEvent(
+        new CustomEvent("weatherUpdate", { detail: weatherDetailInfo }),
+      );
     };
 
     fetchWeather();

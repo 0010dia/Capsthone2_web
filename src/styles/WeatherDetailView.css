@@ -1,0 +1,123 @@
+.weather-detail-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  color: white;
+  background: transparent;
+}
+
+/* 주간 예보 섹션 (최상단) */
+.weekly-forecast-line-section {
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* 구분선 */
+  margin-bottom: 10px;
+}
+
+.weekly-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.weekly-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weekly-icon {
+  width: 28px;
+  height: 28px;
+  margin: 2px 0;
+}
+.day {
+  font-size: 0.9rem;
+}
+
+.temp-range.stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
+}
+.am-temp {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.divider-horizontal {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.pm-temp {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffc9c9;
+}
+
+/* 시간별 예보 섹션 */
+.hourly-forecast-line-section {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* 구분선 */
+  margin-bottom: 15px;
+}
+
+.section-date-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.hourly-scroll-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  scrollbar-width: none;
+  margin: 10px 0;
+}
+
+.hourly-scroll-list::-webkit-scrollbar {
+  display: none;
+}
+
+.hourly-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 40px;
+}
+.h-icon {
+  width: 26px;
+  height: 26px;
+}
+.h-time {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+.h-temp {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.h-pop {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #74c0fc;
+  margin-top: 1px;
+}
+
+/* 상세 정보 */
+.detail-metrics-grid-flat {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.metric-box-flat {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

@@ -30,7 +30,8 @@
   margin: 2px 0;
 }
 .day {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .temp-range.stacked {
@@ -41,7 +42,7 @@
 }
 .am-temp {
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 .divider-horizontal {
   font-size: 0.8rem;
@@ -49,7 +50,7 @@
 }
 .pm-temp {
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #ffc9c9;
 }
 
@@ -61,7 +62,7 @@
 }
 
 .section-date-label {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -116,6 +117,7 @@
 .metric-box-flat {
   margin-top: 5px;
   font-size: 0.9rem;
+  font-weight: 500;
   padding: 3px 0;
   display: flex;
   align-items: center;

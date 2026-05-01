@@ -19,6 +19,10 @@
   backdrop-filter: blur(4px);
 }
 
+.header-left-group{
+  max-width: 330px;
+}
+
 .view-overlay {
   position: fixed;
   top: 0;
@@ -77,4 +81,8 @@
   flex: 1;
   padding: 20px 0;
   overflow-y: auto;
+}
+
+.header-location{
+  font-weight: 600;
 }

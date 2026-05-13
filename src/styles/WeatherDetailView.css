@@ -1,125 +1,281 @@
-.weather-detail-container {
+.wd-container {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.wd-left-panel {
+  flex: 40%;
   display: flex;
   flex-direction: column;
-  padding: 10px 15px;
-  color: white;
-  background: transparent;
-}
-
-/* 주간 예보 섹션 (최상단) */
-.weekly-forecast-line-section {
-  padding-bottom: 25px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* 구분선 */
-  margin-bottom: 10px;
-}
-
-.weekly-list {
-  display: flex;
-  justify-content: space-around;
-}
-
-.weekly-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.weekly-icon {
-  width: 28px;
-  height: 28px;
-  margin: 2px 0;
-}
-.day {
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.temp-range.stacked {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.3;
-}
-.am-temp {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.divider-horizontal {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-.pm-temp {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffc9c9;
-}
-
-/* 시간별 예보 섹션 */
-.hourly-forecast-line-section {
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* 구분선 */
-  margin-bottom: 15px;
-}
-
-.section-date-label {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.hourly-scroll-list {
-  display: flex;
-  overflow-x: auto;
+  justify-content: space-between;
   gap: 15px;
-  scrollbar-width: none;
-  margin: 10px 0;
 }
 
-.hourly-scroll-list::-webkit-scrollbar {
-  display: none;
-}
-
-.hourly-item {
+.wd-right-panel {
+  flex: 60%;
   display: flex;
   flex-direction: column;
+  gap: 15px;
+}
+
+.wd-current-panel {
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  min-width: 40px;
-}
-.h-icon {
-  width: 26px;
-  height: 26px;
-}
-.h-time {
-  font-size: 0.7rem;
-  color: #aaa;
-}
-.h-temp {
-  font-size: 0.85rem;
-  font-weight: 600;
+  padding-left: 20px;
+  margin-top: 25px;
 }
 
-.h-pop {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #74c0fc;
-  margin-top: 1px;
-}
-
-/* 상세 정보 */
-.detail-metrics-grid-flat {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.wd-temp-group {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
-.metric-box-flat {
-  margin-top: 5px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 3px 0;
+.wd-temp-top {
   display: flex;
   align-items: center;
+}
+
+.wd-temp-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.wd-main-temp {
+  font-size: 5.5rem;
+  font-weight: 200;
+  line-height: 0.95;
+  white-space: nowrap;
+}
+
+.wd-main-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.wd-main-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.wd-main-desc {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  text-align: left;
+}
+
+.wd-main-pop {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: white;
+  width: 100%;
   justify-content: flex-start;
+}
+
+.wd-main-pop svg {
+  position: relative;
+  top: 1px;
+}
+
+.wd-main-icon {
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+}
+
+.wd-hourly-section,
+.wd-weekly-section {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.005);
+}
+
+.wd-section-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-top: -5px;
+  color: rgba(255, 255, 255, 0.9);
+
+  /* 글자 왼쪽 배치*/
+  text-align: left;
+}
+
+.wd-hourly-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.wd-hourly-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 42px;
+}
+
+.wd-h-time {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.wd-h-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.wd-h-temp {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.wd-h-pop {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #74c0fc;
+}
+
+.wd-h-pop,
+.wd-week-pop {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wd-weekly-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wd-weekly-item {
+  display: grid;
+  grid-template-columns: 88px 28px 1fr 70px 48px;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  min-height: 38px;
+}
+
+.wd-weekly-item:last-child {
+  padding-bottom: 0;
+}
+
+.wd-day {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wd-weekly-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.wd-week-desc {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wd-week-temp {
+  font-size: 0.79rem;
+  font-weight: 600;
+  white-space: nowrap;
+
+  transform: translateX(-18px);
+}
+
+.wd-week-pop {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+  color: #74c0fc;
+  justify-content: flex-end;
+}
+
+.wd-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.wd-metric-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.005);
+
+  min-height: 74px;
+}
+
+.wd-metric-icon {
+  width: 26px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.wd-metric-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+}
+
+.wd-metric-title {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.8);
+   position: relative;
+  top: 3px;
+}
+
+.wd-metric-content span {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: white;
+  position: relative;
+  top: -3px;
+}
+
+.wd-metric-box span {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: white;
+}
+
+.wd-metric-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.8);
 }

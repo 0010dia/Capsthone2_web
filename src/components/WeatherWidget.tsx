@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Sun, Umbrella, Droplet } from "lucide-react";
 import "../styles/WeatherWidget.css";
 
 const WeatherWidget: React.FC = () => {
@@ -25,7 +26,8 @@ const WeatherWidget: React.FC = () => {
                 `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`,
               );
               const geoData = await geoRes.json();
-              const realCityName = geoData[0]?.local_names?.ko || geoData[0]?.name;
+              const realCityName =
+                geoData[0]?.local_names?.ko || geoData[0]?.name;
 
               const weatherRes = await fetch(
                 `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=kr&appid=${API_KEY}`,
@@ -51,8 +53,9 @@ const WeatherWidget: React.FC = () => {
       );
 
       // 위젯 하단 5개 미리보기용
-      const forecastList = futureForecast.slice(0, 5).map((item: any) => {
+      const forecastList = futureForecast.slice(0, 6).map((item: any) => {
         const date = new Date(item.dt * 1000);
+
         return {
           time: `${date.getHours()}시`,
           temp: Math.round(item.main.temp),
@@ -63,7 +66,6 @@ const WeatherWidget: React.FC = () => {
 
       const current = data.list[0];
 
-      // [핵심] DetailView로 던질 상세 데이터 객체 (rawList 포함)
       const weatherDetailInfo = {
         temp: Math.round(current.main.temp),
         feels_like: Math.round(current.main.feels_like),
@@ -73,7 +75,9 @@ const WeatherWidget: React.FC = () => {
         icon: `https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`,
         location: cityName,
         pop: Math.round(current.pop * 100),
-        rawList: data.list, // 주간 예보를 위해 전체 리스트 전달
+        sunrise: data.city.sunrise,
+        sunset: data.city.sunset,
+        rawList: data.list, 
       };
 
       // 위젯 내부 상태 업데이트
@@ -98,7 +102,7 @@ const WeatherWidget: React.FC = () => {
   return (
     <div className="widget weather-widget">
       <div className="widget-header">
-        <span style={{ fontSize: "24px" }}>⛅</span>
+        <Sun size={20} />{" "}
         <h3>{weather ? `${weather.location} 날씨` : "현재 날씨"}</h3>
       </div>
 
@@ -110,7 +114,10 @@ const WeatherWidget: React.FC = () => {
               <span className="main-temp">{weather.temp}°</span>
               <div className="main-desc-group">
                 <span>{weather.desc}</span>
-                <span className="current-pop">☔ {weather.pop}%</span>
+                <span className="current-pop">
+                  <Umbrella size={20} color="white" />
+                  {weather.pop}%
+                </span>
               </div>
             </div>
           </div>

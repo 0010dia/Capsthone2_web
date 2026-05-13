@@ -5,22 +5,20 @@
   align-items: center;
   width: 100%;
   height: 80%;
+
+  font-family: "SUIT", sans-serif;
 }
 
 /* 버튼(예비) */
 .open-button {
   padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.8rem;
   backdrop-filter: blur(4px);
-}
-
-.header-left-group{
-  max-width: 330px;
 }
 
 .view-overlay {
@@ -29,42 +27,38 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6); 
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
-  backdrop-filter: blur(2px); 
+  backdrop-filter: blur(30px);
   z-index: 9999;
-  align-items: flex-start; 
-  padding-top: 5vh;
+  align-items: center;
+  padding-top: 0;
 }
 
-.view-content { 
-  background: rgba(30, 30, 30, 0.99);
+.view-content {
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  
-  width: 45%; 
-  height: 90%; 
-  
-  max-width: 500px; 
-  max-height: 800px;
+
+  width: 65%;
+  height: auto;
+
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   color: white;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
-  
 }
 
 .view-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding-bottom: 15px;
 }
 
-.view-header h3{
+.view-header h3 {
   margin-left: 10px;
 }
 
@@ -78,11 +72,13 @@
 }
 
 .view-body {
-  flex: 1;
   padding: 20px 0;
   overflow-y: auto;
 }
 
-.header-location{
-  font-weight: 600;
+.header-location {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 9px;
 }

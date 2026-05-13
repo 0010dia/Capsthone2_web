@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/StockWidget.css";
+import { ChartCandlestick } from "lucide-react";
 
 // 종목 데이터 타입 정의
 interface StockData {
@@ -65,8 +66,7 @@ const StockWidget: React.FC = () => {
   return (
     <div className="widget stock-widget">
       <div className="widget-header">
-        <span className="header-icon">📈</span>
-        <h3>관심 종목</h3>
+        <ChartCandlestick size={20} /> <h3>관심 종목</h3>
       </div>
 
       {loading ? (

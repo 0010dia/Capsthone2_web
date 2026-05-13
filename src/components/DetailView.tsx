@@ -3,6 +3,8 @@ import "../styles/DetailView.css";
 import WeatherDetailView from "./WeatherDetailView.tsx";
 import NewsDetailView from "./NewsDetailView.tsx";
 
+import { Newspaper, Sun } from "lucide-react";
+
 const DetailView: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"news" | "weather">("news");
@@ -41,26 +43,29 @@ const DetailView: React.FC = () => {
       {isOpen && (
         <div className="view-overlay" onClick={handleClose}>
           <div className="view-content" onClick={(e) => e.stopPropagation()}>
-
             <div className="view-header">
               <div className="header-left-group">
-
                 {activeTab === "weather" && weatherData && (
                   <span className="header-location">
-                    📍 {weatherData.location} 주간 및 시간별 상세 날씨
+                    <Sun size={20}/> {weatherData.location} 주간 및 시간별 상세 날씨
                   </span>
                 )}
 
                 {activeTab === "news" && (
                   <span className="header-location">
-                    {newsTitle ? `📰 ${newsTitle}` : "📰 뉴스를 선택해주세요"}
+                    <>
+                      <Newspaper size={18} strokeWidth={2} />
+
+                      <span>
+                        {newsTitle ? newsTitle : "뉴스를 선택해주세요"}
+                      </span>
+                    </>{" "}
                   </span>
                 )}
               </div>
 
               <div className="header-right-group">
                 <div className="tab-menu">
-
                   <button
                     className={`tab-item ${activeTab === "news" ? "active" : ""}`}
                     onClick={() => handleTabChange("news")}
@@ -78,7 +83,6 @@ const DetailView: React.FC = () => {
                   <button className="close-x-button" onClick={handleClose}>
                     ×
                   </button>
-
                 </div>
               </div>
             </div>
@@ -90,7 +94,6 @@ const DetailView: React.FC = () => {
                 <NewsDetailView onTitleChange={setNewsTitle} />
               )}
             </div>
-
           </div>
         </div>
       )}

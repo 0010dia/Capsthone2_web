@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+
+import { Newspaper } from "lucide-react";
+
 import "../styles/NewsWidget.css";
 
 const NewsWidget: React.FC = () => {
@@ -15,7 +18,7 @@ const NewsWidget: React.FC = () => {
           data.slice(0, 3).map((item: any) => ({
             title: item.title,
             link: item.url,
-          }))
+          })),
         );
       } catch (e) {
         console.error(e);
@@ -32,8 +35,7 @@ const NewsWidget: React.FC = () => {
   return (
     <div className="widget news-widget">
       <div className="widget-header">
-        <span style={{ fontSize: "20px" }}>📰</span>
-        <h3>오늘의 주요 뉴스</h3>
+        <Newspaper size={20} strokeWidth={2} /> <h3>오늘의 주요 뉴스</h3>
       </div>
 
       {loading ? (

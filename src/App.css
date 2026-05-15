@@ -109,7 +109,7 @@ body {
 .widget {
   width: 100%;
   max-width: 350px; /* 너무 퍼지지 않게 사이즈 제한 */
-  background: rgba(255, 255, 255, 0.005); /* 투명한 다크 박스 */
+  background: rgba(255, 255, 255, 0.001); /* 투명한 다크 박스 */
   border-radius: 12px;
   padding: 20px;
 
